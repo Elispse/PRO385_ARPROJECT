@@ -38,11 +38,8 @@ public class PetUI : MonoBehaviour
 
     private void Update()
     {
-        if (!curPet.sleeping)
-        {
-            hungerBar.value = curPet.curHunger;
-            thirstBar.value = curPet.curThirst;
-        }
+        hungerBar.value = curPet.curHunger;
+        thirstBar.value = curPet.curThirst;
         exhaustionBar.value = curPet.curExhaustion;
     }
 
@@ -53,6 +50,7 @@ public class PetUI : MonoBehaviour
             curPet.curHunger += Mathf.Ceil(curPet.GetMaxHunger() * .25f);
             if (curPet.curHunger > curPet.GetMaxHunger()) curPet.curHunger = curPet.GetMaxHunger();
         }
+        curPet.agent.isStopped = true;
     }
 
     void WaterBtnClicked()
@@ -62,10 +60,12 @@ public class PetUI : MonoBehaviour
             curPet.curThirst += Mathf.Ceil(curPet.GetMaxThirst() * .25f);
             if (curPet.curThirst > curPet.GetMaxThirst()) curPet.curThirst = curPet.GetMaxThirst();
         }
+        curPet.agent.isStopped = true;
     }
 
     void SleepBtnClicked()
     {
         curPet.sleeping = (!curPet.sleeping) ? true : false;
+        curPet.agent.isStopped = true;
     }
 }

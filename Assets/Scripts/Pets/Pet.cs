@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class Pet : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    [HideInInspector] public NavMeshAgent agent;
 
     [SerializeField] float maxHunger;
     [SerializeField] float hungerDepletionRate;
@@ -19,6 +19,8 @@ public class Pet : MonoBehaviour
 
     [HideInInspector] public bool sleeping = false;
 
+    float wanderTimer = 0;
+
     public float GetMaxHunger() { return maxHunger; }
     public float GetMaxThirst() { return maxThirst; }
     public float GetMaxExhaustion() { return maxExhaustion; }
@@ -28,6 +30,9 @@ public class Pet : MonoBehaviour
         curHunger = maxHunger;
         curThirst = maxThirst;
         curExhaustion = maxExhaustion;
+
+        agent = GetComponent<NavMeshAgent>();
+        agent.isStopped = true;
     }
 
     private void Update()
@@ -39,9 +44,26 @@ public class Pet : MonoBehaviour
             curExhaustion -= Time.deltaTime * exhaustionDepletionRate;
 
             CheckStats();
+
+            if(agent.isStopped)
+            {
+                wanderTimer -= Time.deltaTime;
+                if (wanderTimer <= 0)
+                {
+                    wanderTimer = Random.Range(5, 10);
+                    agent.SetDestination(new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-10f, 10f)) + transform.position);
+                    agent.isStopped = false;
+                }
+            }
+            else if(agent.remainingDistance <= 0.5f)
+            {
+                agent.isStopped = true;
+            }
         }
         else
         {
+            curHunger -= Time.deltaTime * .1f * hungerDepletionRate;
+            curThirst -= Time.deltaTime * .1f * thirstDepletionRate;
             curExhaustion += Time.deltaTime * .5f;
         }
     }
