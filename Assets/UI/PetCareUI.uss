@@ -1,0 +1,29 @@
+:root {
+}
+
+.statBar {
+    -unity-font-style: bold;
+}
+
+.statBox {
+    max-width: 30%;
+}
+
+.careBox {
+    position: absolute;
+    bottom: 0;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 17%;
+    max-height: 17%;
+    flex-direction: row;
+    align-self: center;
+}
+
+.careBtn {
+    font-size: 30px;
+    min-width: 13%;
+    max-width: 13%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
