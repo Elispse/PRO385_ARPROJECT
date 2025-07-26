@@ -1,0 +1,5 @@
+C:/Users/elija/Documents/Neumont School Work/PRO385/PRO385_ARPROJECT/.utmp/RelWithDebInfo/5b1r2l18/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/elija/Documents/Neumont School Work/PRO385/PRO385_ARPROJECT/.utmp/RelWithDebInfo/5b1r2l18/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/elija/Documents/Neumont School Work/PRO385/PRO385_ARPROJECT/.utmp/RelWithDebInfo/5b1r2l18/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/elija/Documents/Neumont School Work/PRO385/PRO385_ARPROJECT/.utmp/RelWithDebInfo/5b1r2l18/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/elija/Documents/Neumont School Work/PRO385/PRO385_ARPROJECT/.utmp/RelWithDebInfo/5b1r2l18/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

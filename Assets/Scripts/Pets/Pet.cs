@@ -1,8 +1,6 @@
 using System.Collections;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Animations;
 
 public class Pet : MonoBehaviour
 {
