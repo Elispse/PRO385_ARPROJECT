@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f55492f82e850b54b82386677aed4530
+guid: 42213510e1d06b34cacd78f9992545cc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -31,18 +31,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: rig_duck|run (1)
-      takeName: rig_duck|run
+      name: rig_duck|Dead
+      takeName: rig_duck|Dead
       internalID: -1666090493388264082
       firstFrame: 0
-      lastFrame: 24
+      lastFrame: 99
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -158,7 +158,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

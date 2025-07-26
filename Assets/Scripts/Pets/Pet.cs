@@ -1,6 +1,8 @@
+using System.Collections;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations;
 
 public class Pet : MonoBehaviour
 {
@@ -20,7 +22,7 @@ public class Pet : MonoBehaviour
 
     [HideInInspector] public bool sleeping = false;
 
-    [SerializeField] private Animator animator;
+    [SerializeField] public Animator animator;
 
     float wanderTimer = 0;
 
@@ -45,7 +47,7 @@ public class Pet : MonoBehaviour
             curHunger -= Time.deltaTime * hungerDepletionRate;
             curThirst -= Time.deltaTime * thirstDepletionRate;
             curExhaustion -= Time.deltaTime * exhaustionDepletionRate;
-            animator.SetFloat("WalkSpeed", agent.velocity);
+            animator.SetFloat("Walking", agent.velocity.magnitude);
             CheckStats();
 
             if(agent.isStopped)
@@ -73,8 +75,15 @@ public class Pet : MonoBehaviour
 
     private void CheckStats()
     {
-        if(curHunger <= 0) Destroy(gameObject);
-        if(curThirst <= 0) Destroy(gameObject);
-        if(curExhaustion <= 0) Destroy(gameObject);
+        if(curHunger <= 0) StartCoroutine(Dead());
+        if(curThirst <= 0) StartCoroutine(Dead());
+        if(curExhaustion <= 0) StartCoroutine(Dead());
+    }
+
+    private IEnumerator Dead()
+    {
+        animator.SetTrigger("Dead");
+        yield return new WaitForSeconds(4.0f);
+        Destroy(gameObject);
     }
 }

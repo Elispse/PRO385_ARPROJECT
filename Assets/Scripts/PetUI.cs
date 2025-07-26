@@ -51,6 +51,7 @@ public class PetUI : MonoBehaviour
             if (curPet.curHunger > curPet.GetMaxHunger()) curPet.curHunger = curPet.GetMaxHunger();
         }
         curPet.agent.isStopped = true;
+        curPet.animator.SetTrigger("Eat");
     }
 
     void WaterBtnClicked()
@@ -61,11 +62,20 @@ public class PetUI : MonoBehaviour
             if (curPet.curThirst > curPet.GetMaxThirst()) curPet.curThirst = curPet.GetMaxThirst();
         }
         curPet.agent.isStopped = true;
+        curPet.animator.SetTrigger("Eat");
     }
 
     void SleepBtnClicked()
     {
         curPet.sleeping = (!curPet.sleeping) ? true : false;
         curPet.agent.isStopped = true;
+        if (curPet.sleeping)
+        {
+            curPet.animator.SetBool("Sleep", true);
+        }
+        else
+        {
+            curPet.animator.SetBool("Sleep", false);
+        }
     }
 }
