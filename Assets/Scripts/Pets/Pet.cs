@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,6 +19,8 @@ public class Pet : MonoBehaviour
     [HideInInspector] public float curExhaustion;
 
     [HideInInspector] public bool sleeping = false;
+
+    [SerializeField] private Animator animator;
 
     float wanderTimer = 0;
 
@@ -42,7 +45,7 @@ public class Pet : MonoBehaviour
             curHunger -= Time.deltaTime * hungerDepletionRate;
             curThirst -= Time.deltaTime * thirstDepletionRate;
             curExhaustion -= Time.deltaTime * exhaustionDepletionRate;
-
+            animator.SetFloat("WalkSpeed", agent.velocity);
             CheckStats();
 
             if(agent.isStopped)
