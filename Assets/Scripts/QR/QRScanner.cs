@@ -10,7 +10,6 @@ public class QR : MonoBehaviour
 {
     [SerializeField]
     private string lastResult;
-
     [SerializeField]
     private ARSession session;
     [SerializeField]
