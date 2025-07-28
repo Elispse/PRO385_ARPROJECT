@@ -16,6 +16,8 @@ public class QR : MonoBehaviour
     private XROrigin sessionOrigin;
     [SerializeField]
     private ARCameraManager cameraManager;
+    [SerializeField]
+    private VoidEvent spawnPet;
 
     private Texture2D cameraImageTexture;
 
@@ -86,11 +88,11 @@ public class QR : MonoBehaviour
         {
             lastResult = result.Text + " " + result.BarcodeFormat;
             print(lastResult);
-        }
-    }
 
-    private void OnGUI()
-    {
-        GUI.TextField(new Rect(10, 10, 256, 25), lastResult);
+            if (result.Text == "https://Spawn")
+            {
+                spawnPet.RaiseEvent();
+            }
+        }
     }
 }
