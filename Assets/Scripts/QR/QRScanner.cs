@@ -5,6 +5,8 @@ using UnityEngine.XR.ARSubsystems;
 using ZXing;
 
 using Unity.XR.CoreUtils;
+using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 public class QR : MonoBehaviour
 {
@@ -20,6 +22,15 @@ public class QR : MonoBehaviour
     private VoidEvent spawnPet;
 
     private Texture2D cameraImageTexture;
+
+    [SerializeField]
+    private ARRaycastManager raycastManager;
+
+    [SerializeField]
+    private GameObject prefabToSpawn;
+
+    private string debugLog = "";
+
 
     private IBarcodeReader barcodeReader = new BarcodeReader
     {
@@ -91,8 +102,20 @@ public class QR : MonoBehaviour
 
             if (result.Text == "https://Spawn")
             {
-                spawnPet.RaiseEvent();
+
             }
         }
     }
+
+    private void OnGUI()
+    {
+        GUIStyle style = new GUIStyle(GUI.skin.label);
+        style.fontSize = 28;
+        style.normal.textColor = Color.green;
+
+        Rect rect = new Rect(10, 10, Screen.width - 20, Screen.height / 2);
+        GUI.Label(rect, debugLog, style);
+    }
+
+
 }
