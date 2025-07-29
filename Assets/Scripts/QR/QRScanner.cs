@@ -7,6 +7,7 @@ using ZXing;
 using Unity.XR.CoreUtils;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using Unity.AI.Navigation;
 
 public class QR : MonoBehaviour
 {
@@ -115,6 +116,7 @@ public class QR : MonoBehaviour
 
         Rect rect = new Rect(10, 10, Screen.width - 20, Screen.height / 2);
         GUI.Label(rect, debugLog, style);
+        gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
     }
 
 

@@ -17,6 +17,7 @@ public class PetUI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        return;
         root = GetComponent<UIDocument>().rootVisualElement;
 
         hungerBar = root.Q<ProgressBar>("HungerBar");
@@ -38,6 +39,7 @@ public class PetUI : MonoBehaviour
 
     private void Update()
     {
+        if (curPet == null) return;
         hungerBar.value = curPet.curHunger;
         thirstBar.value = curPet.curThirst;
         exhaustionBar.value = curPet.curExhaustion;
