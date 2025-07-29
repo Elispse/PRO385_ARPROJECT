@@ -1,5 +1,0 @@
-C:/Users/xbrennan/Classes/PRO385/PRO385_ARPROJECT/.utmp/RelWithDebInfo/3n21ko3y/arm64-v8a/CMakeFiles/edit_cache.dir
-C:/Users/xbrennan/Classes/PRO385/PRO385_ARPROJECT/.utmp/RelWithDebInfo/3n21ko3y/arm64-v8a/CMakeFiles/rebuild_cache.dir
-C:/Users/xbrennan/Classes/PRO385/PRO385_ARPROJECT/.utmp/RelWithDebInfo/3n21ko3y/arm64-v8a/GameActivity/CMakeFiles/game.dir
-C:/Users/xbrennan/Classes/PRO385/PRO385_ARPROJECT/.utmp/RelWithDebInfo/3n21ko3y/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
-C:/Users/xbrennan/Classes/PRO385/PRO385_ARPROJECT/.utmp/RelWithDebInfo/3n21ko3y/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

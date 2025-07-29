@@ -3,33 +3,10 @@
 
 .statBar {
     -unity-font-style: bold;
-    -unity-font-definition: url("project://database/Assets/UI/Fonts/soft-marshmallow/Soft%20Marshmallow.otf?fileID=12800000&guid=11b5b0eaf720350419a527a2088cc74f&type=3#Soft Marshmallow");
-    letter-spacing: 5px;
-    font-size: 20px;
-}
-
-.statBar .unity-progress-bar__background {
-    background-image: url("project://database/Assets/Violet%20Theme%20Ui/Progress%20Bars/Progress%20Bar%20Background.png?fileID=2800000&guid=3884787ef484b9641b8d705dfa15ea9d&type=3#Progress Bar Background");
-    background-color: rgba(0, 0, 0, 0);
-    -unity-background-scale-mode: stretch-to-fill;
-}
-
-.hungerStatBar .unity-progress-bar__progress {
-    background-image: url("project://database/Assets/Violet%20Theme%20Ui/Progress%20Bars/Progress%20Bar%20Orange.png?fileID=2800000&guid=b0bf94ead829fd24591a1625a292a742&type=3#Progress Bar Orange");
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.thirstStatBar .unity-progress-bar__progress {
-    background-image: url("project://database/Assets/Violet%20Theme%20Ui/Progress%20Bars/Progress%20Bar%20Blue.png?fileID=2800000&guid=6119f52e1327e7142ace21eddd69fe50&type=3#Progress Bar Blue");
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.exhaustionStatBar .unity-progress-bar__progress {
-    background-image: url("project://database/Assets/Violet%20Theme%20Ui/Progress%20Bars/Progress%20Bar%20Violet.png?fileID=2800000&guid=995f1bd50066f2b40a5bf442c8a8510c&type=3#Progress Bar Violet");
-    background-color: rgba(0, 0, 0, 0);
 }
 
 .statBox {
+    max-width: 30%;
 }
 
 .careBox {
@@ -37,50 +14,16 @@
     bottom: 0;
     max-width: 100%;
     min-width: 100%;
-    min-height: 10%;
-    max-height: 10%;
+    min-height: 17%;
+    max-height: 17%;
     flex-direction: row;
     align-self: center;
 }
 
 .careBtn {
-    font-size: 12px;
-    min-width: 20%;
-    max-width: 10%;
-    margin-left: 6.5%;
-    margin-right: 6.5%;
-    background-image: url("project://database/Assets/UI/CozyGardenUI/Clear%20Menu%20Buttons/Butto.png?fileID=2800000&guid=12ccb685b37e9634aa014f067dc523c5&type=3#Butto");
-    background-color: rgba(0, 0, 0, 0);
-    padding-bottom: 6%;
-    -unity-background-image-tint-color: rgb(220, 220, 220);
-    -unity-font-definition: url("project://database/Assets/UI/Fonts/soft-marshmallow/Soft%20Marshmallow.otf?fileID=12800000&guid=11b5b0eaf720350419a527a2088cc74f&type=3#Soft Marshmallow");
-    letter-spacing: 5px;
-}
-
-.careBtn:hover {
-    font-size: 12px;
-    min-width: 20%;
-    max-width: 10%;
-    margin-left: 6.5%;
-    margin-right: 6.5%;
-    background-image: url("project://database/Assets/UI/CozyGardenUI/Clear%20Menu%20Buttons/Butto.png?fileID=2800000&guid=12ccb685b37e9634aa014f067dc523c5&type=3#Butto");
-    background-color: rgba(0, 0, 0, 0);
-    padding-bottom: 5%;
-    -unity-background-image-tint-color: rgb(255, 255, 255);
-    -unity-font-definition: url("project://database/Assets/UI/Fonts/soft-marshmallow/Soft%20Marshmallow.otf?fileID=12800000&guid=11b5b0eaf720350419a527a2088cc74f&type=3#Soft Marshmallow");
-    letter-spacing: 5px;
-}
-
-.careBtn:active {
-    font-size: 12px;
-    min-width: 20%;
-    max-width: 10%;
-    margin-left: 6.5%;
-    margin-right: 6.5%;
-    background-image: url("project://database/Assets/UI/CozyGardenUI/Clear%20Menu%20Buttons/Pressed/Butto-pressed.png?fileID=2800000&guid=50b0307a1a8caa5439bb45a09b2b99b5&type=3#Butto-pressed");
-    background-color: rgba(0, 0, 0, 0);
-    padding-bottom: 5%;
-    -unity-background-image-tint-color: rgb(220, 220, 220);
-    -unity-font-definition: url("project://database/Assets/UI/Fonts/soft-marshmallow/Soft%20Marshmallow.otf?fileID=12800000&guid=11b5b0eaf720350419a527a2088cc74f&type=3#Soft Marshmallow");
-    letter-spacing: 5px;
+    font-size: 30px;
+    min-width: 13%;
+    max-width: 13%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
