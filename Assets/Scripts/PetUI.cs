@@ -12,7 +12,7 @@ public class PetUI : MonoBehaviour
     Button waterBtn;
     Button sleepBtn;
 
-    public Pet curPet;
+    [HideInInspector] public Pet curPet;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,10 +22,6 @@ public class PetUI : MonoBehaviour
         hungerBar = root.Q<ProgressBar>("HungerBar");
         thirstBar = root.Q<ProgressBar>("ThirstBar");
         exhaustionBar = root.Q<ProgressBar>("ExhaustionBar");
-
-        hungerBar.highValue = curPet.GetMaxHunger();
-        thirstBar.highValue = curPet.GetMaxThirst();
-        exhaustionBar.highValue = curPet.GetMaxExhaustion();
 
         foodBtn = root.Q<Button>("FoodBtn");
         waterBtn = root.Q<Button>("WaterBtn");
@@ -42,6 +38,15 @@ public class PetUI : MonoBehaviour
         hungerBar.value = curPet.curHunger;
         thirstBar.value = curPet.curThirst;
         exhaustionBar.value = curPet.curExhaustion;
+    }
+
+    public void SetPet(Pet pet)
+    {
+        curPet = pet;
+
+        hungerBar.highValue = curPet.GetMaxHunger();
+        thirstBar.highValue = curPet.GetMaxThirst();
+        exhaustionBar.highValue = curPet.GetMaxExhaustion();
     }
 
     void FoodBtnClicked()
