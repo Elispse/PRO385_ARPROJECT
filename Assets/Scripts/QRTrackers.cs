@@ -84,16 +84,44 @@ public class QRTrackers : MonoBehaviour
 
         transform.SetPositionAndRotation(imageTransform.position + new Vector3(0, -1f, 0), imageTransform.rotation);
         gameObject.SetActive(true);
-        if (!isDuckSpawned) Instantiate(duck, imageTransform.position + new Vector3(0, -0.8f, 0), imageTransform.rotation);
-        isDuckSpawned = true;
-        StartCoroutine(RebuildNavMeshNextFrame());
+
+        StartCoroutine(RebuildNavMeshNextFrame(imageTransform));
     }
 
-    private IEnumerator RebuildNavMeshNextFrame()
+    private IEnumerator RebuildNavMeshNextFrame(Transform imageTransform)
     {
-        yield return new WaitForSeconds(0.2f); // Or: yield return null;
+        yield return new WaitForSeconds(0.2f);
         navMeshSurface.BuildNavMesh();
+
+        // Wait another frame to ensure NavMesh is fully built
+        yield return new WaitForEndOfFrame();
+
+        if (!isDuckSpawned)
+        {
+            Vector3 spawnPosition = imageTransform.position + new Vector3(0, -0.8f, 0);
+            UnityEngine.AI.NavMeshHit hit;
+
+            // Try to find a valid NavMesh position within 1 unit radius
+            if (UnityEngine.AI.NavMesh.SamplePosition(spawnPosition, out hit, 1.0f, UnityEngine.AI.NavMesh.AllAreas))
+            {
+                GameObject duckInstance = Instantiate(duck, hit.position, imageTransform.rotation);
+
+                // Optional: Check if agent is correctly placed
+                UnityEngine.AI.NavMeshAgent agent = duckInstance.GetComponent<UnityEngine.AI.NavMeshAgent>();
+                if (agent != null && !agent.isOnNavMesh)
+                {
+                    Debug.LogWarning("Duck NavMeshAgent is NOT on the NavMesh!");
+                }
+            }
+            else
+            {
+                Debug.LogError("No valid NavMesh found near intended spawn position.");
+            }
+
+            isDuckSpawned = true;
+        }
     }
+
 
 
     private void HideObject()
