@@ -118,4 +118,6 @@ public class QR : MonoBehaviour
         GUI.Label(rect, debugLog, style);
         gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
     }
+
+
 }

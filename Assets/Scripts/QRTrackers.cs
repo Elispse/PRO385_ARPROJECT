@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using HoloLab.ARFoundationQRTracking;
-using Unity.AI.Navigation;
-using UnityEngine.UIElements; // Ensure this using directive is present at the top
+using Unity.AI.Navigation; // Ensure this using directive is present at the top
 
 
 public class QRTrackers : MonoBehaviour
@@ -113,15 +112,13 @@ public class QRTrackers : MonoBehaviour
                 {
                     Debug.LogWarning("Duck NavMeshAgent is NOT on the NavMesh!");
                 }
-
-                isDuckSpawned = true;
-                var ui = FindFirstObjectByType<PetUI>();
-                ui.SetPet(duckInstance.GetComponent<Pet>());
             }
             else
             {
                 Debug.LogError("No valid NavMesh found near intended spawn position.");
             }
+
+            isDuckSpawned = true;
         }
     }
 
