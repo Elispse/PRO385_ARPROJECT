@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using HoloLab.ARFoundationQRTracking;
 using Unity.AI.Navigation;
-using UnityEngine.UIElements; // Ensure this using directive is present at the top
+using UnityEngine.UIElements;
+using NUnit.Framework.Constraints;
+using UnityEngine.XR.ARFoundation; // Ensure this using directive is present at the top
 
 
 public class QRTrackers : MonoBehaviour
@@ -83,7 +85,7 @@ public class QRTrackers : MonoBehaviour
     {
         var imageTransform = image.transform;
 
-        transform.SetPositionAndRotation(imageTransform.position + new Vector3(0, -1f, 0), imageTransform.rotation);
+        transform.SetPositionAndRotation(imageTransform.position, imageTransform.rotation);
         gameObject.SetActive(true);
 
         StartCoroutine(RebuildNavMeshNextFrame(imageTransform));
