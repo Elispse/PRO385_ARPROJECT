@@ -55,6 +55,10 @@
     -unity-background-image-tint-color: rgb(220, 220, 220);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/soft-marshmallow/Soft%20Marshmallow.otf?fileID=12800000&guid=11b5b0eaf720350419a527a2088cc74f&type=3#Soft Marshmallow");
     letter-spacing: 5px;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
 }
 
 .careBtn:hover {
