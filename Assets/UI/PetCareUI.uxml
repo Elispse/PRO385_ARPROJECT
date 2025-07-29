@@ -1,9 +1,9 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/PetCareUI.uss?fileID=7433441132597879392&amp;guid=f3bedd7a0fac1274586f74d24be6decb&amp;type=3#PetCareUI" />
+    <Style src="project://database/Assets/UI/PetCareUI.uss?fileID=7433441132597879392&amp;guid=f3bedd7a0fac1274586f74d24be6decb&amp;type=3" />
     <ui:GroupBox name="StatsBox" class="statBox">
-        <ui:ProgressBar name="HungerBar" value="100" title="Hunger" class="statBar" />
-        <ui:ProgressBar name="ThirstBar" value="100" title="Thirst" class="statBar" />
-        <ui:ProgressBar name="ExhaustionBar" value="100" title="Exhaustion" class="statBar" />
+        <ui:ProgressBar name="HungerBar" value="100" title="Hunger" class="statBar hungerStatBar" />
+        <ui:ProgressBar name="ThirstBar" value="100" title="Thirst" class="statBar thirstStatBar" />
+        <ui:ProgressBar name="ExhaustionBar" value="100" title="Exhaustion" class="statBar exhaustionStatBar" />
     </ui:GroupBox>
     <ui:GroupBox name="CareBox" class="careBox">
         <ui:Button text="Food" name="FoodBtn" class="careBtn" />
