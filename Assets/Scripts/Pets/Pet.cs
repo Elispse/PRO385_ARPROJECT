@@ -53,8 +53,8 @@ public class Pet : MonoBehaviour
                 wanderTimer -= Time.deltaTime;
                 if (wanderTimer <= 0)
                 {
-                    wanderTimer = Random.Range(5, 10);
-                    agent.SetDestination(new Vector3(Random.Range(-0.1f, 0.1f), 0, Random.Range(-0.1f, 0.1f)) + transform.position);
+                    wanderTimer = Random.Range(2, 5);
+                    agent.SetDestination(new Vector3(Random.Range(-0.25f, 0.25f), 0, Random.Range(-0.25f, 0.25f)) + transform.position);
                     agent.isStopped = false;
                 }
             }
@@ -69,8 +69,6 @@ public class Pet : MonoBehaviour
             curThirst -= Time.deltaTime * .1f * thirstDepletionRate;
             curExhaustion += Time.deltaTime * .5f;
         }
-        if (!agent.isOnNavMesh)
-            Debug.LogWarning("Agent is NOT on the NavMesh!");
     }
 
     private void CheckStats()

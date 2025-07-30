@@ -20,7 +20,7 @@ public class SpawnDuck : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         navMeshSurface.BuildNavMesh();
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.2f);
         Instantiate(duckPrefab, spawnPrefab.transform.position, spawnPrefab.transform.rotation);
     }
 }
