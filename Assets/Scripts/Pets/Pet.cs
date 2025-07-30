@@ -33,9 +33,6 @@ public class Pet : MonoBehaviour
         curHunger = maxHunger;
         curThirst = maxThirst;
         curExhaustion = maxExhaustion;
-
-        agent = GetComponent<NavMeshAgent>();
-        agent.isStopped = true;
     }
 
     private void Update()
@@ -45,23 +42,7 @@ public class Pet : MonoBehaviour
             curHunger -= Time.deltaTime * hungerDepletionRate;
             curThirst -= Time.deltaTime * thirstDepletionRate;
             curExhaustion -= Time.deltaTime * exhaustionDepletionRate;
-            animator.SetFloat("Walking", agent.velocity.magnitude);
             CheckStats();
-
-            if(agent.isStopped)
-            {
-                wanderTimer -= Time.deltaTime;
-                if (wanderTimer <= 0)
-                {
-                    wanderTimer = Random.Range(5, 10);
-                    agent.SetDestination(new Vector3(Random.Range(-0.1f, 0.1f), 0, Random.Range(-0.1f, 0.1f)) + transform.position);
-                    agent.isStopped = false;
-                }
-            }
-            else if(agent.remainingDistance <= 0.5f)
-            {
-                agent.isStopped = true;
-            }
         }
         else
         {
@@ -69,8 +50,6 @@ public class Pet : MonoBehaviour
             curThirst -= Time.deltaTime * .1f * thirstDepletionRate;
             curExhaustion += Time.deltaTime * .5f;
         }
-        if (!agent.isOnNavMesh)
-            Debug.LogWarning("Agent is NOT on the NavMesh!");
     }
 
     private void CheckStats()

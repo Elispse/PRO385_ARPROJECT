@@ -56,7 +56,6 @@ public class PetUI : MonoBehaviour
             curPet.curHunger += Mathf.Ceil(curPet.GetMaxHunger() * .25f);
             if (curPet.curHunger > curPet.GetMaxHunger()) curPet.curHunger = curPet.GetMaxHunger();
         }
-        curPet.agent.isStopped = true;
         curPet.animator.SetTrigger("Eat");
     }
 
@@ -67,14 +66,12 @@ public class PetUI : MonoBehaviour
             curPet.curThirst += Mathf.Ceil(curPet.GetMaxThirst() * .25f);
             if (curPet.curThirst > curPet.GetMaxThirst()) curPet.curThirst = curPet.GetMaxThirst();
         }
-        curPet.agent.isStopped = true;
         curPet.animator.SetTrigger("Eat");
     }
 
     void SleepBtnClicked()
     {
         curPet.sleeping = (!curPet.sleeping) ? true : false;
-        curPet.agent.isStopped = true;
         if (curPet.sleeping)
         {
             curPet.animator.SetBool("Sleep", true);

@@ -2,19 +2,14 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using System.Collections.Generic;
-using Unity.AI.Navigation;
+using UnityEngine.InputSystem;
 
-public class QRAnchorRaycastSpawner : MonoBehaviour
+public class QRSpawnSimple : MonoBehaviour
 {
-    [SerializeField] ARTrackedImageManager trackedImageManager;
-    [SerializeField] ARRaycastManager raycastManager;
-    [SerializeField] ARAnchorManager anchorManager;
-    [SerializeField] ARPlaneManager planeManager;
-    [SerializeField] Camera arCamera;
+    [SerializeField] private ARTrackedImageManager trackedImageManager;
+    [SerializeField] private GameObject prefabToSpawn;
 
-    private Dictionary<string, GameObject> spawnedObjects = new Dictionary<string, GameObject>();
-
-    private List<ARRaycastHit> hits = new List<ARRaycastHit>();
+    private Dictionary<string, GameObject> spawnedPrefabs = new Dictionary<string, GameObject>();
 
     void OnEnable()
     {
@@ -30,45 +25,42 @@ public class QRAnchorRaycastSpawner : MonoBehaviour
     {
         foreach (var trackedImage in eventArgs.added)
         {
-            SpawnAnchorAtQRCenter(trackedImage);
+            SpawnAtQRCode(trackedImage);
+        }
+
+        foreach (var trackedImage in eventArgs.updated)
+        {
+            string id = trackedImage.trackableId.ToString();
+            if (spawnedPrefabs.TryGetValue(id, out var obj))
+            {
+                // Update the position and rotation as long as it's being tracked
+                obj.transform.position = trackedImage.transform.position;
+                obj.transform.rotation = trackedImage.transform.rotation;
+            }
+        }
+
+        foreach (var trackedImage in eventArgs.removed)
+        {
+            string id = trackedImage.Key.ToString();
+            if (spawnedPrefabs.TryGetValue(id, out var obj))
+            {
+                Destroy(obj);
+                spawnedPrefabs.Remove(id);
+            }
         }
     }
 
-    void SpawnAnchorAtQRCenter(ARTrackedImage trackedImage)
+    void SpawnAtQRCode(ARTrackedImage trackedImage)
     {
         string id = trackedImage.trackableId.ToString();
 
-        if (spawnedObjects.ContainsKey(id))
+        if (spawnedPrefabs.ContainsKey(id))
             return;
 
-        // Convert the QR code's world position to screen position
-        Vector3 worldPos = trackedImage.transform.position;
-        Vector2 screenPos = arCamera.WorldToScreenPoint(worldPos);
-
-        // Raycast from screen position into AR world planes
-        if (raycastManager.Raycast(screenPos, hits, TrackableType.Planes))
-        {
-            Pose hitPose = hits[0].pose;
-            var trackableId = hits[0].trackableId;
-            var plane = planeManager.GetPlane(trackableId);
-
-            if (plane == null)
-            {
-                Debug.LogWarning("Plane not found for the hit.");
-                return;
-            }
-
-            ARAnchor anchor = anchorManager.AttachAnchor(plane, hitPose);
-            if (anchor == null)
-            {
-                Debug.LogWarning("Failed to create anchor.");
-                return;
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Raycast from QR center did not hit any planes.");
-        }
-
+        GameObject spawned = Instantiate(prefabToSpawn, trackedImage.transform.position, trackedImage.transform.rotation);
+        // Optional: Parent to the tracked image so it follows automatically
+        spawned.transform.SetParent(trackedImage.transform);
+        spawnedPrefabs.Add(id, spawned);
+        FindFirstObjectByType<PetUI>().SetPet(spawned.GetComponent<Pet>());
     }
 }
