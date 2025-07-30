@@ -21,6 +21,7 @@ public class SpawnDuck : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         navMeshSurface.BuildNavMesh();
         yield return new WaitForEndOfFrame();
-        Instantiate(duckPrefab, spawnPrefab.transform.position, spawnPrefab.transform.rotation);
+        GameObject pet = Instantiate(duckPrefab, spawnPrefab.transform.position, spawnPrefab.transform.rotation);
+        FindFirstObjectByType<PetUI>().SetPet(pet.GetComponent<Pet>());
     }
 }
