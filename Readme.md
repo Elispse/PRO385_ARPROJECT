@@ -6,15 +6,18 @@ AR Pets is an AR experience where you are able to summon a pet from a QR code an
 Elijah Kelting, Xandyr Brennan
 
 📱 Experience Description
+<br>
 When the user points their device camera at a predefined QR code, the app detects and tracks it in real time. As soon as the code is recognized, a prefabbed 3D object is instantiated directly at the code’s location and will follow the QR’s pose. This creates a responsive, intuitive AR experience that does not require plane detection or persistent anchors.
 
 🧰 Technical Details
+<br>
 ✅ AR Framework / SDK
 Unity AR Foundation (v6.x)
 XR Plugin Management enabled
 ARCore
 
 🧭 Tracking Technique
+<br>
 2D Image Tracking using ARTrackedImageManager
 
 Tracking is initiated by matching a QR code against a reference image library
