@@ -1,4 +1,5 @@
 🧠 Project Overview
+<br>
 AR Pets is an AR experience where you are able to summon a pet from a QR code and take care of them in the real world, along the lines of Tamagotchi.
 
 👥 Team Members
