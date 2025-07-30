@@ -1,6 +1,5 @@
-
 🧠 Project Overview
-This project demonstrates a lightweight Augmented Reality experience built in Unity, designed to detect QR codes and spawn objects directly on top of them. Unlike many AR setups, this application uses image-based tracking only—no world anchors or persistent spatial mapping. It is ideal for use cases such as guided installations, educational displays, or simple spatial triggers.
+
 
 👥 Team Members
 Elijah Kelting, Xandyr Brennan
@@ -11,10 +10,8 @@ When the user points their device camera at a predefined QR code, the app detect
 🧰 Technical Details
 ✅ AR Framework / SDK
 Unity AR Foundation (v6.x)
-
 XR Plugin Management enabled
-
-ARKit/ARCore (via Unity's cross-platform abstraction)
+ARCore
 
 🧭 Tracking Technique
 2D Image Tracking using ARTrackedImageManager
@@ -27,9 +24,6 @@ Unity Version: 6000.1
 Scripting Runtime: .NET Standard 2.1
 
 Platform Targets:
-
-iOS (via ARKit)
-
 Android (via ARCore)
 
 ▶️ How to Run the Project
@@ -60,11 +54,5 @@ Camera Usage Description in Player Settings
 
 Plug in your AR-capable device and build to it directly
 
-💡 Design Notes
-All tracked objects are parented directly to the tracked image (ARTrackedImage) so that the object's position updates in real time with the QR.
-
-No anchors are used in this version for persistence after tracking is lost.
-
-Optional smoothing or easing can be applied to minimize jitter when tracking is reacquired.
 <br>
 <img src="https://github.com/Elispse/PRO385_ARPROJECT/blob/main/image0.jpg" width="250" height="500">
